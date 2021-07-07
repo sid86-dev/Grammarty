@@ -1,0 +1,272 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Grammarty™</title>
+    <meta name="description" content="Prism is a beautiful Bootstrap 4 template for open-source landing pages." />
+
+    <!--Google font-->
+    <link href="https://fonts.googleapis.com/css?family=K2D:300,400,500,700,800" rel="stylesheet">
+
+    <!-- Bootstrap CSS / Color Scheme -->
+    <link rel="stylesheet" href="/static/css/bootstrap.css">
+    <script>
+        function copyToClipboard(element) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+        }
+
+    </script>
+</head>
+
+<body>
+
+    <!--Header Section-->
+    <section class="bg-gradient pt-5 pb-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 d-flex flex-row align-items-center justify-content-between">
+                    <div class="heading-brand">Grammarty</div>
+                    <a href="https://github.com/LeaVerou/prism/" class="btn btn-success svg-icon">
+                        <em class="mr-2" data-feather="github"></em>
+                        Contribute
+                    </a>
+                </div>
+            </div>
+            <div class="row mt-6">
+                <div class="col-md-8 mx-auto text-center">
+                    <h1>Enter your text below</h1>
+                    <form class="col s12 center-align" action="/sent_correct" method="post">
+                        <textarea name="SENT" id="sent"
+                            style="width: 100%;height: 250px;font-size: large; padding: 30px;"></textarea>
+                        <button class="btn btn-dark mb-5 mt-5" type="submit" style="font-size: x-large;">Check
+                            Now</button>
+                            
+                        <textarea id="p1" name="SENT" class="text-center" placeholder="OUTPUT HERE" id="sent"
+                            style="width: 100%;height: 250px;font-size: large;padding: 30px;">{{output1}}</textarea> <button data-bs-toggle="tooltip" class="float-right" data-bs-placement="top" title="Copy to clipboard"
+                            style="background-color: transparent; border: none; cursor: pointer;;"><svg xmlns="http://www.w3.org/2000/svg"
+                                width="25" height="25" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16"
+                                onclick="copyToClipboard('#p1')">
+                                <path
+                                    d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
+                                <path
+                                    d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
+                            </svg></button>
+                       
+                        <br><br>
+
+                    </form>
+                    <p class="lead mb-5 mt-6">Grammar is a lightweight, extensible Grammar analyser and auto corrector
+                        built with Gingerit module of Python3
+                        . It can be used to instantly check and autocorrect an grammatically incorrect sentence .
+                    </p>
+                    <h1>Development</h1>
+                    <a href="https://github.com/LeaVerou/prism/" class="btn btn-success svg-icon">
+                        <em class="mr-2" data-feather="code"></em>
+                        Flask
+                    </a>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="col-md-9 mx-auto">
+                    <div class="code-window">
+                        <div class="dots">
+                            <div class="red"></div>
+                            <div class="orange"></div>
+                            <div class="green"></div>
+                        </div>
+                        <pre class="language-javascript line-numbers"><code class="language-javascript">from gingerit.gingerit import GingerIt
+
+from flask import Flask, request,render_template,redirect
+
+app = Flask(__name__)
+ 
+@app.route("/")
+def sent():
+    if request.method == "GET":
+        return render_template("index.html")
+    else:
+        
+        if not request.form["SENT"]:
+            return redirect("/")
+
+        
+  
+ 
+@app.route("/sent_correct", methods=["GET","POST"])
+def sent_correct():
+    if request.method == 'POST':
+        text = request.form["SENT"]
+        parser = GingerIt()
+        print(parser.parse(text)['corrections'])
+        result=parser.parse(text)['result']
+        return render_template('index.html', output1=result)
+        
+
+app.run()</code></pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Features Section-->
+    <section class="py-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h2 class="text-center text-md-left">Reasons Why People Love <span
+                            class="text-success">Grammarty™</span></h2>
+                    <div class="row feature-grid">
+                        <div class="col-sm-6">
+                            <div class="media">
+                                <div class="icon-box">
+                                    <div class="icon-box-inner">
+                                        <span data-feather="check-circle" width="28" height="28"></span>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    Dead Simple
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="media">
+                                <div class="icon-box">
+                                    <div class="icon-box-inner">
+                                        <span data-feather="command" width="28" height="28"></span>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    Highly Intuitive
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="media">
+                                <div class="icon-box">
+                                    <div class="icon-box-inner">
+                                        <span data-feather="feather" width="28" height="28"></span>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    Light as a Feather
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="media">
+                                <div class="icon-box">
+                                    <div class="icon-box-inner">
+                                        <span data-feather="zap" width="28" height="28"></span>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    Blazing Fast
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="media">
+                                <div class="icon-box">
+                                    <div class="icon-box-inner">
+                                        <span data-feather="git-pull-request" width="28" height="28"></span>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    Extensible
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="media">
+                                <div class="icon-box">
+                                    <div class="icon-box-inner">
+                                        <span data-feather="droplet" width="28" height="28"></span>
+                                    </div>
+                                </div>
+                                <div class="media-body">
+                                    Easy to use
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--Used By Section-->
+    <section class="pb-6">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 mx-auto">
+                    <h2 class="text-center text-md-left">Other Branch</h2>
+                    <p class="lead text-muted">Useful website by Throttlerz™</p>
+                    <div class="mt-5 d-flex flex-row justify-content-md-between flex-wrap press-icons">
+                        <a href="https://www.linklerz.xyz/sid86" target="_blank">
+                            <img src="/static/img/sidlogo.png" style="width: 110px;" class="mx-3 mt-5"
+                                alt="Linklerz" /></a>
+                        <a href="https://passlerz.herokuapp.com/" target="_blank">
+
+                            <img src="/static/img/passlerz.png" alt="Passlerz" class="mx-3 mt-5" style="width: 70px;" />
+                        </a>
+                        <a href="https://textutils-throttlerz.herokuapp.com/" target="_blank">
+                            <img src="/static/img/textutils.png" class="mx-5 mt-5"
+                                style="width: 75px; filter: invert(48%) sepia(13%) saturate(3207%) hue-rotate(130deg) brightness(95%) contrast(80%);"
+                                alt="textutils" />
+                        </a>
+                        <a href="https://trelerz.com/" target="_blank">
+                            <img src="/static/img/logo.png" class="mx-3 mt-5" style="width: 105px; height: 55px;"
+                                alt="trelerz" /></a>
+
+
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!--footer-->
+    <footer class="py-5 bg-light">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="https://linklerz.xyz/sid86/" target="_blank">Connect with me</a></li>
+                        <li class="list-inline-item"><a href="https://gingerit.readthedocs.io/en/latest/"
+                                target="_blank">API Docs</a></li>
+                        <li class="list-inline-item"><a href="https://github.com/LeaVerou/prism/" target="_blank">Fork
+                                Grammarty on
+                                GitHub</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row my-2">
+                <div class="col-md-4 mx-auto text-muted text-center small-xl">
+                    &copy;
+                    <script>
+                        document.write(new Date().getFullYear())
+                    </script> Grammarty - All Rights Reserved
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.7.3/feather.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/prism.min.js"></script>
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.15.0/plugins/line-numbers/prism-line-numbers.min.js"></script>
+    <script src="/static/js/scripts.js"></script>
+</body>
+
+</html>
