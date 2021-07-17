@@ -1,6 +1,8 @@
 # Grammarty
 
 [![Pytest](https://github.com/sid86-dev/Grammarty/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/sid86-dev/Grammarty/actions/workflows/main.yml)
+[![CodeQL](https://github.com/sid86-dev/Grammarty/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/sid86-dev/Grammarty/actions/workflows/codeql-analysis.yml)
+
 ![GitHub last commit](https://img.shields.io/github/last-commit/sid86-dev/Grammarty)
 ![GitHub commits since latest release (by date)](https://img.shields.io/github/commits-since/sid86-dev/Grammarty/v0.01)
 
