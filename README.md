@@ -10,4 +10,14 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/sid86-dev/Grammarty)
 ![GitHub repo size](https://img.shields.io/github/repo-size/sid86-dev/Grammarty)
 
-### Grammar is a lightweight, extensible Grammar analyser and auto corrector built with Gingerit module of Python3. It can be used to instantly check and autocorrect an grammatically incorrect sentence .
+``` Grammar is a lightweight, extensible Grammar analyser and auto corrector built with Gingerit module of Python3. It can be used to instantly check and autocorrect an grammatically incorrect sentence ```
+
+ <br>
+
+
+###  How to Use ❓
+ 
+  <li> Input the text you want to fix
+  <li> Click on Check Now, That it !
+
+
