@@ -6,7 +6,28 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Grammarty™</title>
+    <!-- favicons -->
     <meta name="description" content="Prism is a beautiful Bootstrap 4 template for open-source landing pages." />
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/static/fav/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/fav/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/fav/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/fav/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="60x60" href="/static/fav/apple-touch-icon-60x60.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/static/fav/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="76x76" href="/static/fav/apple-touch-icon-76x76.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/static/fav/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/static/fav/favicon-196x196.png" sizes="196x196" />
+    <link rel="icon" type="image/png" href="/static/fav/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/png" href="/static/fav/favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/static/fav/favicon-16x16.png" sizes="16x16" />
+    <link rel="icon" type="image/png" href="/static/fav/favicon-128.png" sizes="128x128" />
+    <meta name="application-name" content="&nbsp;" />
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/static/fav/mstile-144x144.png" />
+    <meta name="msapplication-square70x70logo" content="/static/fav/mstile-70x70.png" />
+    <meta name="msapplication-square150x150logo" content="/static/fav/mstile-150x150.png" />
+    <meta name="msapplication-wide310x150logo" content="/static/fav/mstile-310x150.png" />
+    <meta name="msapplication-square310x310logo" content="/static/fav/mstile-310x310.png" />
 
     <!--Google font-->
     <link href="https://fonts.googleapis.com/css?family=K2D:300,400,500,700,800" rel="stylesheet">
@@ -23,6 +44,7 @@
         }
 
     </script>
+
 </head>
 
 <body>
@@ -47,26 +69,30 @@
                             style="width: 100%;height: 250px;font-size: large; padding: 30px;"></textarea>
                         <button class="btn btn-dark mb-5 mt-5" type="submit" style="font-size: x-large;">Check
                             Now</button>
-                            
+
                         <textarea id="p1" name="SENT" class="text-center" placeholder="OUTPUT HERE" id="sent"
-                            style="width: 100%;height: 250px;font-size: large;padding: 30px;">{{output1}}</textarea> <button data-bs-toggle="tooltip" class="float-right" data-bs-placement="top" title="Copy to clipboard"
-                            style="background-color: transparent; border: none; cursor: pointer;;"><svg xmlns="http://www.w3.org/2000/svg"
-                                width="25" height="25" fill="currentColor" class="bi bi-clipboard" viewBox="0 0 16 16"
-                                onclick="copyToClipboard('#p1')">
+                            style="width: 100%;height: 250px;font-size: large;padding: 30px;">{{output1}}</textarea>
+                        <button data-bs-toggle="tooltip" class="float-right" data-bs-placement="top"
+                            title="Copy to clipboard"
+                            style="background-color: transparent; border: none; cursor: pointer;;"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                                class="bi bi-clipboard" viewBox="0 0 16 16" onclick="copyToClipboard('#p1')">
                                 <path
                                     d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z" />
                                 <path
                                     d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z" />
                             </svg></button>
-                       
+
                         <br><br>
 
                     </form>
                     <p class="lead mb-5 mt-6">Grammarty is a lightweight, extensible Grammar analyser and auto corrector
-                        built with Gingerit module of Python3. It can be used to instantly check and autocorrect an grammatically incorrect sentence .
+                        built with Gingerit module of Python3. It can be used to instantly check and autocorrect an
+                        grammatically incorrect sentence .
                     </p>
                     <h1>Development</h1>
-                    <a href="https://github.com/sid86-dev/Grammarty/blob/master/app.py" class="btn btn-success svg-icon" target="_blank">
+                    <a href="https://github.com/sid86-dev/Grammarty/blob/master/app.py" class="btn btn-success svg-icon"
+                        target="_blank">
                         <em class="mr-2" data-feather="code"></em>
                         Flask
                     </a>
@@ -239,10 +265,12 @@ app.run()</code></pre>
             <div class="row">
                 <div class="col-12 text-center">
                     <ul class="list-inline">
-                        <li class="list-inline-item"><a href="https://linklerz.xyz/sid86/" target="_blank">Connect with me</a></li>
+                        <li class="list-inline-item"><a href="https://linklerz.xyz/sid86/" target="_blank">Connect with
+                                me</a></li>
                         <li class="list-inline-item"><a href="https://gingerit.readthedocs.io/en/latest/"
                                 target="_blank">API Docs</a></li>
-                        <li class="list-inline-item"><a href="https://github.com/sid86-dev/Grammarty" target="_blank">Fork
+                        <li class="list-inline-item"><a href="https://github.com/sid86-dev/Grammarty"
+                                target="_blank">Fork
                                 Grammarty on
                                 GitHub</a></li>
                     </ul>
