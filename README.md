@@ -20,6 +20,6 @@
 ###  How to Use ❓
  
   <li> Input the text you want to fix
-  <li> Click on Check Now, That it !
+  <li> Click on Check Now, Thats it !
 
 
