@@ -66,12 +66,12 @@
                     <h1>Enter your text below</h1>
                     <form class="col s12 center-align" action="/sent_correct" method="post">
                         <textarea name="SENT" id="sent"
-                            style="width: 100%;height: 250px;font-size: large; padding: 30px;"></textarea>
+                            style="width: 100%;height: 300px;font-size: large; padding: 30px;"></textarea>
                         <button class="btn btn-dark mb-5 mt-5" type="submit" style="font-size: x-large;">Check
                             Now</button>
 
                         <textarea id="p1" name="SENT" class="text-center" placeholder="OUTPUT HERE" id="sent"
-                            style="width: 100%;height: 250px;font-size: large;padding: 30px;">{{output1}}</textarea>
+                            style="width: 100%;height: 300px;font-size: large;padding: 30px;">{{output1}}</textarea>
                         <button data-bs-toggle="tooltip" class="float-right" data-bs-placement="top"
                             title="Copy to clipboard"
                             style="background-color: transparent; border: none; cursor: pointer;;"><svg
@@ -250,12 +250,23 @@ app.run()</code></pre>
                         <a href="https://trelerz.com/" target="_blank">
                             <img src="/static/img/logo.png" class="mx-3 mt-5" style="width: 105px; height: 55px;"
                                 alt="trelerz" /></a>
-
-
-
                     </div>
                 </div>
             </div>
+            <!-- <div class="container d-flex justify-content-center mt-5">
+
+                <form action="/subscription" method="POST">
+                    <div class="row">
+
+                        <div class="col-md-7">
+                            <input type="email" id="email" class="py-1 pb-2 px-5 mt-3 input-group" style="font-size: large;" placeholder="email">
+                        </div>
+                        <div class="col-3">
+                            <button type="submit" class="btn btn-dark mt-3">Subscribe</button>
+                        </div>
+                    </div>
+                </form>
+            </div> -->
         </div>
     </section>
 
