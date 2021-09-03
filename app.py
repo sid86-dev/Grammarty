@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 from gingerit.gingerit import GingerIt
 
 from flask import Flask, request,render_template,redirect
@@ -29,4 +27,4 @@ def sent_correct():
         
 
 if __name__ == "__main__":
-    app.run(debug=True, port=8000)
+    app.run()
