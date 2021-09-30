@@ -23,7 +23,7 @@ def sent_correct():
     if request.method == 'POST':
         text = request.form["SENT"]
         parser = GingerIt()
-        print(parser.parse(text)['corrections'])
+        # print(parser.parse(text)['corrections'])
         result=parser.parse(text)['result']
         return render_template('index.html', output1=result)
         
