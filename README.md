@@ -1,4 +1,4 @@
-# Grammarty
+# [Grammarty](https://grammarty.herokuapp.com/)
 
 [![Pytest](https://github.com/sid86-dev/Grammarty/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/sid86-dev/Grammarty/actions/workflows/main.yml)
 [![CodeQL](https://github.com/sid86-dev/Grammarty/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/sid86-dev/Grammarty/actions/workflows/codeql-analysis.yml)
@@ -20,6 +20,6 @@
 ###  How to Use ❓
  
   <li> Input the text you want to fix
-  <li> Click on Check Now, That it !
+  <li> Click on Check Now, Thats it !
 
 
