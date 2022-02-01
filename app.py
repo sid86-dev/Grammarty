@@ -1,9 +1,16 @@
 from gingerit.gingerit import GingerIt
 
-from flask import Flask, request,render_template,redirect
+from flask import Flask, request,render_template,redirect, make_response, jsonify
+import json
 
 app = Flask(__name__)
  
+
+def checkText(text):
+    parser = GingerIt()
+    newText = parser.parse(text)
+    return newText
+
 @app.route("/")
 def sent():
     if request.method == "GET":
@@ -13,18 +20,26 @@ def sent():
         if not request.form["SENT"]:
             return redirect("/")
 
-        
+
   
  
-@app.route("/sent_correct", methods=["GET","POST"])
+@app.post("/sent_correct")
 def sent_correct():
-    if request.method == 'POST':
-        text = request.form["SENT"]
-        parser = GingerIt()
-        # print(parser.parse(text)['corrections'])
-        result=parser.parse(text)['result']
-        return render_template('index.html', output1=result)
+    # get data from frontend
+    data = request.get_json()
+    text = data["text"]
+    print(text)
+
+    try:
+        print(checkText(text))
+        res = make_response(jsonify({"error": 'no-error','text':checkText(text)}), 200)
+        return res
+    except:
+        res = make_response(jsonify({"error": 'Something went wrong, try again'}), 200)
+        return res
+
         
 
 if __name__ == "__main__":
-    app.run()
+    # app.run(debug=True)
+    print(checkText("hi this are tree"))
