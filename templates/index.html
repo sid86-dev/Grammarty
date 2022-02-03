@@ -63,9 +63,10 @@
                 <div class="col-md-8 mx-auto text-center">
                     <h1>Enter your text below</h1>
                     <form class="col s12 center-align" action="/sent_correct" method="post">
-                        <textarea name="SENT" id="inputText" maxlength="500" style="width: 100%;height: 300px;font-size: large; padding: 30px;"></textarea>
-<button id="submitbtn" class="btn btn-dark mb-5 mt-5" type="button" style="font-size: x-large;" onclick="submitEntry()">Check Now
-                        </button>
+                        <textarea name="SENT" id="inputText" class="text-center" maxlength="500" style="width: 100%;height: 300px;font-size: large; padding: 30px;" placeholder="TYPE HERE"></textarea>
+                        <div id="submitbtn">
+<button  class="btn btn-dark mb-5 mt-5" type="button" style="font-size: x-large;" onclick="submitEntry()">Check Now
+                        </button></div>
 <div id="loginLoader" class='loader' ></div>
                         <textarea id="outputText" name="SENT" class="text-center" placeholder="OUTPUT HERE" id="sent" style="width: 100%;height: 300px;font-size: large;padding: 30px;">{{output1}}</textarea>
                         <button data-bs-toggle="tooltip" class="float-right" data-bs-placement="top" title="Copy to clipboard" style="background-color: transparent; border: none; cursor: pointer;;"><svg
@@ -80,7 +81,7 @@
                         <br><br>
 
                     </form>
-                    <p class="lead mb-5 mt-6">Grammarty is a lightweight, extensible Grammar analyser and auto corrector built with Gingerit module of Python3. It can be used to instantly check and autocorrect an grammatically incorrect sentence.
+                    <p class="lead mb-5 mt-6">Grammarly is a lightweight, extensible Grammar analyzer and autocorrector built on top of LanguageTool of Python3. It can be used to instantly check and autocorrect a grammatically incorrect sentence
                     </p>
                     <h1>Development</h1>
                     <a href="https://github.com/sid86-dev/Grammarty/blob/master/app.py" class="btn btn-success svg-icon" target="_blank">
@@ -96,13 +97,19 @@
                             <div class="orange"></div>
                             <div class="green"></div>
                         </div>
-                        <pre class="language-javascript line-numbers"><code class="language-javascript">from gingerit.gingerit import GingerIt
-
-from flask import Flask, request,render_template,redirect
+                        <pre class="language-javascript line-numbers"><code class="language-javascript">import language_tool_python
+from flask import Flask, request,render_template,redirect, make_response, jsonify
 
 app = Flask(__name__)
  
-@app.route("/")
+
+def checkText(text):
+    tool = language_tool_python.LanguageTool('en-US',
+    config={ 'cacheSize': 1000, 'pipelineCaching': True })
+    newText = tool.correct(text)
+    return newText
+
+@app.get("/")
 def sent():
     if request.method == "GET":
         return render_template("index.html")
@@ -111,20 +118,26 @@ def sent():
         if not request.form["SENT"]:
             return redirect("/")
 
-        
-  
  
-@app.route("/sent_correct", methods=["GET","POST"])
+@app.post("/sent_correct")
 def sent_correct():
-    if request.method == 'POST':
-        text = request.form["SENT"]
-        parser = GingerIt()
-        print(parser.parse(text)['corrections'])
-        result=parser.parse(text)['result']
-        return render_template('index.html', output1=result)
-        
+    # get data from frontend
+    data = request.get_json()
+    text = data["text"]
 
-app.run()</code></pre>
+    try:
+        res = make_response(jsonify({"error": 'no-error',
+        'text':checkText(text)}), 200)
+        return res
+    except:
+        res = make_response(jsonify({"error": 'Something went wrong, 
+        try again'}), 200)
+        return res
+       
+
+if __name__ == "__main__":
+    app.run(debug=True)
+</code></pre>
                     </div>
                 </div>
             </div>
@@ -221,11 +234,11 @@ app.run()</code></pre>
         <div class="container">
             <div class="row">
                 <div class="col-md-8 mx-auto">
-                    <h2 class="text-center text-md-left">Other Branch</h2>
+                    <h2 class="text-center text-md-left">Other Websites</h2>
                     <p class="lead text-muted">Useful website by Throttlerz™</p>
                     <div class="mt-5 d-flex flex-row justify-content-md-between flex-wrap press-icons">
-                        <a href="https://www.linklerz.xyz/sid86" target="_blank">
-                            <img src="/static/img/sidlogo.png" style="width: 110px;" class="mx-3 mt-5" alt="Linklerz" /></a>
+                        <a href="https://www.linklerz.xyz/" target="_blank">
+                            <img src="/static/img/linklerz_logo.png" style="width: 80px;" class="mx-3 mt-5" alt="Linklerz" /></a>
                         <a href="https://passlerz.herokuapp.com/" target="_blank">
 
                             <img src="/static/img/passlerz.png" alt="Passlerz" class="mx-3 mt-5" style="width: 70px;" />
@@ -263,7 +276,7 @@ app.run()</code></pre>
                     <ul class="list-inline">
                         <li class="list-inline-item"><a href="https://linklerz.xyz/sid86/" target="_blank">Connect with
                                 me</a></li>
-                        <li class="list-inline-item"><a href="https://gingerit.readthedocs.io/en/latest/" target="_blank">API Docs</a></li>
+                        <li class="list-inline-item"><a href="https://github.com/jxmorris12/language_tool_python" target="_blank">LanguageTool</a></li>
                         <li class="list-inline-item"><a href="https://github.com/sid86-dev/Grammarty" target="_blank">Fork
                                 Grammarty on
                                 GitHub</a></li>
