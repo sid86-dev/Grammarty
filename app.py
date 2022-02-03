@@ -5,7 +5,7 @@ app = Flask(__name__)
  
 
 def checkText(text):
-    tool = language_tool_python.LanguageTool('en-US', config={ 'cacheSize': 1000, 'pipelineCaching': True })
+    tool = language_tool_python.LanguageToolPublicAPI('en-US')
     newText = tool.correct(text)
     return newText
 
